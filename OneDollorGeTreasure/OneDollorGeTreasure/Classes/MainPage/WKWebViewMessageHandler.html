@@ -1,0 +1,78 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+        <title>奖品详情</title>
+
+            </script>
+    </head>
+    
+    <body>
+      
+            <div class="buy_bottom">
+
+                <a href="cart.aspx" class="btn_add" onclick="share()">立即抢夺</a>
+            </div>
+            
+            <div class="buy_bottom">
+                
+                <a href="cart.aspx" class="btn_add" onclick="login()">跳转登陆</a>
+            </div>
+            
+            <div class="buy_bottom">
+                
+                <a href="cart.aspx" class="btn_add" onclick="jump()">跳转</a>
+            </div>
+            
+            <input type="button" value="退出登录" onclick="logout()" />
+
+
+        </div>
+
+        <script type="text/javascript">
+            var devtype = '1';
+            var $title = '十cs01';
+            var $desc = '快来夺宝啊，一元就可以啦';
+            var $link = 'http://yungou.ie1e.com/app/download.html';
+            var $imgUrl = 'http://yungou.ie1e.com/UploadFile/image/20161201/20161201114658_5455.png';
+            
+        //分享
+        function login() {
+                //ios
+            window.webkit.messageHandlers.login.postMessage();
+
+        }
+        
+        //跳转
+        function jump() {
+            //ios
+            window.webkit.messageHandlers.jj.postMessage();
+            
+        }
+
+
+        function logout() {
+            window.webkit.messageHandlers.logout.postMessage(null);
+        }
+        
+
+        //分享
+        function share() {
+<!--            if (devtype == "0") {-->
+<!--                //安卓-->
+<!--                window.android.share($title, $desc, $link, $imgUrl);-->
+<!--            }-->
+<!--            else if (devtype == "1") {-->
+<!--                //ios-->
+                window.webkit.messageHandlers.shareWeixinInfo.postMessage({ title: $title, desc: $desc, link: $link, imgUrl: $imgUrl });
+<!--            }-->
+        }
+        </script>
+    </body>
+</html>
+
+
+
